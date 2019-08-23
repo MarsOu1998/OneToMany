@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="PO.Banji"  table="Banji">
+        <id name="banjihao" column="班级号" >
+            <generator class="assigned"></generator>
+        </id>
+        <property name="banjiming" column="班级名字" ></property>
+        <set name="students" table="student" lazy="false" cascade="all" order-by="xuehao asc">
+            <key column="班级号"></key>
+            <one-to-many class="PO.Student"/>
+        </set>
+    </class>
+</hibernate-mapping>
